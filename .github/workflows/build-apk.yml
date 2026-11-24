@@ -75,6 +75,7 @@ jobs:
             KS_PASS="$KEYSTORE_PASS"; ALIAS="$ALIAS_NAME"; ALIAS_P="$ALIAS_PASS"
           else
             KS_PASS="sfa-custom"; ALIAS="sfa"; ALIAS_P="sfa-custom"
+            rm -f app/release.keystore
             keytool -genkeypair -v -keystore app/release.keystore -storepass "$KS_PASS" -alias "$ALIAS" -keypass "$ALIAS_P" -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=SFA Custom, OU=Personal, O=Personal, L=Singapore, ST=Singapore, C=SG"
           fi
           PROPS=$(printf "KEYSTORE_PASS=%s\nALIAS_NAME=%s\nALIAS_PASS=%s\n" "$KS_PASS" "$ALIAS" "$ALIAS_P" | base64 -w0)
