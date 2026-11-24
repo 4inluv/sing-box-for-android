@@ -78,7 +78,7 @@ android {
         versionCode = getVersionProps("VERSION_CODE").toInt()
         versionName = getVersionProps("VERSION_NAME")
         base.archivesName.set("SFA-${versionName}")
-        resourceConfigurations += listOf("en", "zh")
+        resourceConfigurations += listOf("en", "zh-rCN")
     }
 
     signingConfigs {
